@@ -16,11 +16,11 @@
                 <form action="{{ route('login.submit') }}" method="POST">
                     @csrf
                     <div class="mb-2">
-                        <label for="" class="form-label">username</label>
-                        <input name="text" type="text" class="form-control">
+                        <label for="email" class="form-label">Email</label>
+                        <input name="email" type="text" class="form-control">
                     </div>
                     <div class="mb-2">
-                        <label for="" class="form-label">user password</label>
+                        <label for="password" class="form-label">user password</label>
                         <input name="password" type="password" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
