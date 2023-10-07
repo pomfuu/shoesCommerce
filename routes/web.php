@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\registerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/login', [loginController::class, 'index'])->name('login');
+Route::get('/register', [registerController::class, 'index'])->name('register');
 
 Route::get('about', function(){
     return view('about.index');
@@ -28,6 +30,8 @@ Route::fallback(function(){
 });
 
 Route::post('/login', [loginController::class, 'handleLogin'])->name('login.submit');
+Route::post('/register', [loginController::class, 'handleRegister'])->name('register.submit');
+
 
 // GET - request resource
 // POST - create new resource

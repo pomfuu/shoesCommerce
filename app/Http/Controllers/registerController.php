@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 
-class loginController extends Controller
+class registerController extends Controller
 {
     public function index(){
-        return view('login');
+        return view('register');
     }
 
-    public function handleLogin(LoginRequest $request){
+    public function handleRegister(RegisterRequest $request){
         return $request;
     }
 }
+
