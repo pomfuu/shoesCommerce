@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\loginController;
+use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\VendorController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\registerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,27 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/login', [loginController::class, 'index'])->name('login');
-Route::get('/register', [registerController::class, 'index'])->name('register');
-
-Route::get('about', function(){
-    return view('about.index');
-})->name('about');
-
-Route::fallback(function(){
-    return "Route not Exist!";
+Route::get('/', function () {
+    return view('welcome');
 });
 
-Route::post('/login', [loginController::class, 'handleLogin'])->name('login.submit');
-Route::post('/register', [loginController::class, 'handleRegister'])->name('register.submit');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-// GET - request resource
-// POST - create new resource
-// PUT - update a resource
-// PATCH - modify a resource
-// DELETE - delete a resource
+require __DIR__.'/auth.php';
 
-// CSRF TOKEN - add token dari form kita
+Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
+
 
