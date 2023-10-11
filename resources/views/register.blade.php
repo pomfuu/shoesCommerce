@@ -31,7 +31,7 @@
 <div class="container" style="overflow-x: hidden;">
     <div class="sub-container mx-3">
         <div class="row justify-content-md-end me-xl-5">
-            <div class="col-sm-7 col-md-5 col-lg-4 col-xl-3 pt-3 mb-3 greetings-text">
+            <div class="col-sm-7 col-md-5 col-lg-4 col-xl-4 col-xxl-3 pt-3 mb-3 greetings-text">
                 <p class="m-0 p-0">Hello,</p>
                 <p class="m-0 p-0">Sign up now for free!</p>
             </div>
@@ -75,6 +75,7 @@
     body{
 
         background-color: #F0f0f0;
+        font-family: 'Onest', sans-serif;
     }
     .schuhe-stroke-img{
         
@@ -85,15 +86,13 @@
         min-height: 170px;
 
     }
-    .content-box{
-
-    }
     .sub-container{
 
         margin-top: 5vw;
     }
     .greetings-text{
 
+        font-family: 'Onest', sans-serif;
         font-size: 1.5rem;
         font-weight: 600;
 
@@ -106,11 +105,11 @@
     }
     .text-field-label{
 
-        font-size: 1.25rem;
+        font-size: 1.125rem;
     }
     .text-field-input{
         
-        font-size: 1.25rem;
+        font-size: 1.125rem;
         background-color: transparent;
         border: none;
         border-bottom: 2px solid black;
