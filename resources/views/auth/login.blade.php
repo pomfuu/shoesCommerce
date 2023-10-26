@@ -69,7 +69,7 @@
                     <div>
                         <p class="text-field-label mb-2 ps-2">Password</p>
                         <div class="input-group">
-                            <input id="password" type="password" name="password" type="password" value="{{ old('password') }}" class="text-field-input form-control mb-3" placeholder="" aria-label="Username">
+                            <input id="password" type="password" name="password" type="password" class="text-field-input form-control mb-3" placeholder="" aria-label="Username">
                         </div>
                     </div>
                     <div class="text-end">
