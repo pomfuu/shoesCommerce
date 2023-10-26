@@ -14,7 +14,7 @@
                     <div>
                         <p class="text-field-label mb-2 ps-2">Email</p>
                         <div class="input-group">
-                            <input id="name" name="name" value="{{ old('name') }}" type="text" class="text-field-input form-control mb-3" placeholder="" aria-label="Username">
+                            <input id="email" name="email" value="{{ old('email') }}" type="email" class="text-field-input form-control mb-3" placeholder="" aria-label="Username">
                         </div>
                     </div>
                     <div>
@@ -34,7 +34,7 @@
                         <label class="">I agree with the term and conditions</label>
                     </div>
                     <div class="d-flex justify-content-center mt-5">
-                        <button class="submit-btn btn btn-primary px-5" type="submit">Register</button>
+                        <a href="{{ url('/login') }}" class="submit-btn btn btn-primary px-5" type="submit">Register</a>
                     </div>
                 </form>
                 <div class="counter-account-action text-center">
