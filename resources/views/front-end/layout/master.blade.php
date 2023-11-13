@@ -1,85 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <title>Sazao || e-Commerce HTML Template</title>
-    <link rel="icon" type="image/png" href="{{ asset('frontend/images/favicon.png') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/jquery.nice-number.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/jquery.calendar.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/add_row_custon.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/mobile_menu.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/jquery.exzoom.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/multiple-image-video.c') }}ss">
-    <link rel="stylesheet" href="{{ asset('frontend/css/ranger_style.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/jquery.classycountdown.cs') }}s">
-    <link rel="stylesheet" href="{{ asset('frontend/css/venobox.min.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title> @yield('title') </title>
+    <style>
+        body{
+            font-family: 'Onest', sans-serif;
+            background-color: #FFFFFC;
+        }
 
-    <link rel="stylesheet" href="{{ asset('frontend/css/style.cs') }}s">
-    <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
-    <!-- <link rel="stylesheet" href="css/rtl.css"> -->
+        :root{
+            --input-border: #b8b8b8;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            background-color: #FFFFFC;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #1e1e1e;
+            border-radius: 5px;
+        }
+
+        .nav-link{
+            color: #1e1e1e;
+            transition: 0.3s ease-in-out;
+            -webkit-transition: 0.3s ease-in-out;
+            -moz-transition: 0.3s ease-in-out;
+            -ms-transition: 0.3s ease-in-out;
+            -o-transition: 0.3s ease-in-out;
+        }
+
+        .nav-link:hover{
+            color: #E19827;
+        }
+
+        .nav-link:active{
+            color: #1e1e1e;
+        }
+    </style>
 </head>
-
-<body>
+<body style="font-family:'Onest', sans-serif; ">
     @include('front-end.layout.navbar')
     @yield('content')
-
     @include('front-end.layout.footer')
-
-    
-    <div class="wsus__scroll_btn">
-        <i class="fas fa-chevron-up"></i>
-    </div>
-    <!--============================
-        SCROLL BUTTON  END
-    ==============================-->
-
-
-    <!--jquery library js-->
-    <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
-    <!--bootstrap js-->
-    <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
-    <!--font-awesome js-->
-    <script src="{{ asset('frontend/js/Font-Awesome.js') }}"></script>
-    <!--select2 js-->
-    <script src="{{ asset('frontend/js/select2.min.js') }}"></script>
-    <!--slick slider js-->
-    <script src="{{ asset('frontend/js/slick.min.js') }}"></script>
-    <!--simplyCountdown js-->
-    <script src="{{ asset('frontend/js/simplyCountdown.js') }}"></script>
-    <!--product zoomer js-->
-    <script src="{{ asset('frontend/js/jquery.exzoom.js') }}"></script>
-    <!--nice-number js-->
-    <script src="{{ asset('frontend/js/jquery.nice-number.min.js') }}"></script>
-    <!--counter js-->
-    <script src="{{ asset('frontend/js/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/jquery.countup.min.js') }}"></script>
-    <!--add row js-->
-    <script src="{{ asset('frontend/js/add_row_custon.js') }}"></script>
-    <!--multiple-image-video js-->
-    <script src="{{ asset('frontend/js/multiple-image-video.js') }}"></script>
-    <!--sticky sidebar js-->
-    <script src="{{ asset('frontend/js/sticky_sidebar.js') }}"></script>
-    <!--price ranger js-->
-    <script src="{{ asset('frontend/js/ranger_jquery-ui.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/ranger_slider.js') }}"></script>
-    <!--isotope js-->
-    <script src="{{ asset('frontend/js/isotope.pkgd.min.js') }}"></script>
-    <!--venobox js-->
-    <script src="{{ asset('frontend/js/venobox.min.js') }}"></script>
-    <!--classycountdown js-->
-    <script src="{{ asset('frontend/js/jquery.classycountdown.js') }}"></script>
-
-    <!--main/custom js-->
-    <script src="{{ asset('frontend/js/main.js') }}"></script>
 </body>
-
 </html>

@@ -1,6 +1,3 @@
-@extends('layouts.master')
-
-@section('content')
 <div class="row col-12 mt-5 justify-content-center">
     <div class="col-md-4">
         <h2 class="mb-4">Register</h2>
@@ -33,4 +30,3 @@
         </div>
     </div>
 </div>
-@endsection

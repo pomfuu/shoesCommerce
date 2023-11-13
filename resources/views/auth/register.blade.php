@@ -15,7 +15,7 @@
                     <div>
                         <p class="text-field-label mb-2 ps-2">Username</p>
                         <div class="input-group">
-                            <input id="name" name="name" value="{{ old('name') }}" type="text" class="text-field-input form-control mb-3" placeholder="" aria-label="Username">
+                            <input id="name" name="name" type="text" class="text-field-input form-control mb-3" placeholder="" aria-label="Username">
                         </div>
                     </div>
                     <div>
