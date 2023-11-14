@@ -73,7 +73,9 @@
                         </div>
                     </div>
                     <div class="text-end">
-                        <a href="{{ route('password.request') }}" class="counter-account-action">Forgot your password?</a>
+                        @if (Route::has('password.request'))
+                        <a href="{{ route('password.request') }}" class="counter-account-action">{{ __('Forgot your password?') }}</a>
+                        @endif
                     </div>
                     <div class="d-flex mt-3 ">
                         <input type="checkbox" id="remember_me" name="remember" class="check-box-input me-2" >

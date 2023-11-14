@@ -41,8 +41,3 @@ require __DIR__.'/auth.php';
 
 Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
 
-
-
-
-Auth::routes();
-
