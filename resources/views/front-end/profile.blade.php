@@ -33,6 +33,8 @@
                     <input type="text" class="form-control" id="inputadd" name="address" value="{{ Auth::user()->address }}" >
                     <label for="inputdob" class="form-label p-0 mt-3">{{ __('Date of Birth') }}</label>
                     <input type="date" class="form-control" id="inputdob" name="dob" value="{{ Auth::user()->dob }}" >
+                    <label for="inputpayment" class="form-label p-0 mt-3">{{ __('Payment Method') }}</label>
+                    <input type="string" class="form-control" id="inputpayment" name="payment" value="{{ Auth::user()->payment }}" >
                     <button class="btn mb-4 mt-4 text-white" style="background-color: #1e1e1e; width: 40%" type="submit">Upload</button>
                 </div>
             </div>

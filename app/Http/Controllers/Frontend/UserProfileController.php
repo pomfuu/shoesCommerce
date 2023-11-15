@@ -19,6 +19,7 @@ class UserProfileController extends Controller
             'name' => ['required'],
             'image' => ['image'],
             'phone' => 'nullable|string|max:20',
+            'payment' => 'nullable|string|max:20',
             'address' => 'nullable|string|max:255',
             'dob' => 'nullable|date',
         ]);
@@ -41,6 +42,7 @@ class UserProfileController extends Controller
         $user->email = $request->email;
         $user->phone = $request->input('phone');
         $user->address = $request->input('address');
+        $user->payment = $request->input('payment');
         $user->dob = $request->input('dob');
         $user->save();
 
