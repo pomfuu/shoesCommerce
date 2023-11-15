@@ -1,25 +1,25 @@
 <nav class="navbar navbar-expand-lg" style="background-color: #FFFFFC">
     <div class="container-fluid p-2 align-items-center justify-content-center" style="margin-inline: 9vw; font-size: 1rem">
-      <a class="navbar-brand fw-semibold fs-4 m-0" href=" {{  route('home')  }} ">Scuhe</a>
+      <a class="navbar-brand fw-semibold fs-4 m-0" href=" {{  route('home')  }} ">{{ __('Schuhe') }}</a>
       <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto gap-4">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Men</a>
+            <a class="nav-link" aria-current="page" href="#">{{ __('Men') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Women</a>
+            <a class="nav-link" aria-current="page" href="#">{{ __('Women') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Brand</a>
+            <a class="nav-link" aria-current="page" href="#">{{ __('Brand') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">My Order</a>
+            <a class="nav-link" aria-current="page" href="#">{{ __('My Order') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">My Cart</a>
+            <a class="nav-link" aria-current="page" href="#">{{ __('My Cart') }}</a>
           </li>
         </ul>
         <form class="d-flex me-2" role="search">
