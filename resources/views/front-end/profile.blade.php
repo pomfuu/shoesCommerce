@@ -1,60 +1,64 @@
 @extends('front-end.layout.master')
-
+@section('title','User Profile')
 @section('content')
-<section id="wsus__dashboard">
-    <div class="container-fluid">
+<section>
+    <div class="container my-4">
         <div class="row">
-            <div class="col-xl-9 col-xxl-10 col-lg-9 ms-auto">
-                <div class="dashboard_content mt-2 mt-md-0">
-            <h3><i class="far fa-user"></i> profile</h3>
-            <div class="wsus__dashboard_profile">
-                <div class="wsus__dash_pro_area">
-                    <h4>basic information</h4>
-                    <form action="{{ route('user.profile.update') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
-                        <div class="row">
-                            <div class="col-xl-3 col-sm-6 col-md-6">
-                                <div class="wsus__dash_pro_img">
-                                    <img src="{{Auth::user()->image ? asset(Auth::user()->image) : asset('frontend/images/ts-2.jpg')}}" alt="img" class="img-fluid w-100">
-                                    <input name="image" type="file">
-                                </div>
-                            </div>
-                            <div class="col-xl-12">
-                              <button class="common_btn mb-4 mt-2" type="submit">upload</button>
-                            </div>
-                      <div class="col-xl-9">
-                        <div class="row">
-                          <div class="col-xl-6 col-md-6">
-                            <div class="wsus__dash_pro_single">
-                              <i class="fas fa-user-tie"></i>
-                              <input type="text" name="name" placeholder="First Name" value="{{ Auth::user()->name }}">
-                            </div>
-                          </div>
-                          </div>
-                          <div class="col-xl-6 col-md-6">
-                            <div class="wsus__dash_pro_single">
-                              <i class="fal fa-envelope-open"></i>
-                              <input type="email" name="email" placeholder="Email" value="{{ Auth::user()->email }}">
-                            </div>
-                          </div>
+            <h4>{{ __('Personal Profile') }}</h4>
+            <form class="d-flex form-all gap-2" action="{{ route('user.profile.update') }}" method="POST" enctype="multipart/form-data">
+            <div class="col-md-5 col-12">
+                    @csrf
+                    @method('PUT')
+                    <div class="row">
+                        <img class="rounded-2 img-fluid" src="{{Auth::user()->image ? asset(Auth::user()->image) : asset('storage/asset/why-img.svg')}}" alt="img">
+                        <input name="image" type="file" class="my-2">
+                        <button class="btn ms-2 mb-4 mt-2 text-white" style="background-color: #1e1e1e; width: 40%" type="submit">Upload</button>
+                        <div class="from-register">
+                            <label for="inputname" class="form-label p-0">{{ __('Name') }}</label>
+                            <input type="text" name="name" class="form-control" id="inputname" value="{{ Auth::user()->name }}" >
+                            <label for="inputemail" class="form-label p-0 mt-3">{{ __('Email') }}</label>
+                            <input type="email" name="email" class="form-control" id="inputemail" value="{{ Auth::user()->email }}" >
                         </div>
-                      </div>
-                      <div class="wsus__dash_pass_change mt-2">
-                        <div class="row">
-                          <div class="col-xl-12">
-                            <button class="common_btn" type="submit">upload</button>
-                          </div>
-                        </div>
-                      </div>
                     </div>
-                </form>
-              </div>
             </div>
-          </div>
+            <div class="col-md-7 col-12" style="background-color: #DDDDDD">
+                <div class="row m-5 form-field">
+                    <label for="inputname" class="form-label p-0">{{ __('Name') }}</label>
+                    <input type="text" name="name" class="form-control" id="inputname" value="{{ Auth::user()->name }}" >
+                    <label for="inputemail" class="form-label p-0 mt-3">{{ __('Email') }}</label>
+                    <input type="email" name="email" class="form-control" id="inputemail" value="{{ Auth::user()->email }}" >
+                    <label for="inputphone" class="form-label p-0 mt-3">{{ __('Phone Number') }}</label>
+                    <input type="phone" class="form-control" id="inputphone" value="" >
+                    <label for="inputadd" class="form-label p-0 mt-3">{{ __('Address') }}</label>
+                    <input type="text" class="form-control" id="inputadd" value="" >
+                    <label for="inputdob" class="form-label p-0 mt-3">{{ __('Date of Birth') }}</label>
+                    <input type="date" class="form-control" id="inputdob" value="" >
+                    <button class="btn mb-4 mt-4 text-white" style="background-color: #1e1e1e; width: 40%" type="submit">Upload</button>
+                </div>
+            </div>
+        </form>
         </div>
-      </div>
     </div>
-  </section>
+</section>
+<style>
+    .btn:hover{
+        background-color: #DDDDDD !important;
+        color: #1e1e1e !important;
+        transition: 0.3ms ease-in-out;
+    }
+    .from-register{
+        display: none;
+    }
+    @media (max-width: 768px) {
+        .form-all{
+            flex-wrap: wrap !important;
+        }
+    }
+    @media (max-width: 480px) {
+        .form-field{
+            margin-inline: 1vw !important;
+            margin-block: 5vw !important;
+        }
+    }
+</style>
 @endsection
-

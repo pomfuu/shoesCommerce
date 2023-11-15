@@ -94,7 +94,7 @@
         </div>
     </div>
 </section>
-<section style="margin-block: 7vw">
+<section style="margin-block: 9vw">
     <div class="container">
         <p class="fs-4 ms-auto text-end">Best Selling Items</p>
         <div class="row">
