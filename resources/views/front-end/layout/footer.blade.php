@@ -15,9 +15,9 @@
                           </div>
                           <div class="col-md-2 shop">
                             <p class="mb-3 fw-semibold">SHOP</p>
-                            <p><a href="#" class="text-decoration-none text-black">Men</a></p>
-                            <p><a href="#" class="text-decoration-none text-black">Women</a></p>
-                            <p><a href="#" class="text-decoration-none text-black">Women</a></p>
+                            <p><a href="{{  route('product.men')  }}" class="text-decoration-none text-black">Men</a></p>
+                            <p><a href="{{  route('product.women')  }}" class="text-decoration-none text-black">Women</a></p>
+                            <p><a href="{{  route('product.brand')  }}" class="text-decoration-none text-black">Brand</a></p>
                           </div>
                           <div class="col-md-2 about">
                             <p class="mb-3 fw-semibold">ABOUT</p>

@@ -7,13 +7,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto gap-4">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">{{ __('Men') }}</a>
+            <a class="nav-link" aria-current="page" href="{{  route('product.men')  }}">{{ __('Men') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">{{ __('Women') }}</a>
+            <a class="nav-link" aria-current="page" href="{{  route('product.women')  }}">{{ __('Women') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">{{ __('Brand') }}</a>
+            <a class="nav-link" aria-current="page" href="{{  route('product.brand')  }}">{{ __('Brand') }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#">{{ __('My Order') }}</a>

@@ -28,11 +28,11 @@
               NAVIGATE
             </p>
             <div class="">
-              <a class="text-decoration-none text-black" href="#"><p class="m-0 p-0">SHOP FOR MEN</p></a>
+              <a class="text-decoration-none text-black" href="{{  route('product.men')  }}"><p class="m-0 p-0">SHOP FOR MEN</p></a>
               <hr class="my-2" />
-              <a class="text-decoration-none text-black" href="#"><p class="m-0 p-0">SHOP FOR WOMEN</p></a>
+              <a class="text-decoration-none text-black" href="{{  route('product.women')  }}"><p class="m-0 p-0">SHOP FOR WOMEN</p></a>
               <hr class="my-2" />
-              <a class="text-decoration-none text-black" href="#"><p class="m-0 p-0">SHOP BY BRANDS</p></a>
+              <a class="text-decoration-none text-black" href="{{  route('product.brand')  }}"><p class="m-0 p-0">SHOP BY BRANDS</p></a>
               <hr class="my-2" />
               <a class="text-decoration-none text-black" href="#new-arr"><p class="m-0 p-0">NEW ARRIVALS</b></p></a>
             </div>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="btn fs-5 text-center rounded-1 py-3 px-5 my-2" style="background-color: #DDDDDD">SHOP BY BRANDS ></a>
+                <a href="{{  route('product.brand')  }}" class="btn fs-5 text-center rounded-1 py-3 px-5 my-2" style="background-color: #DDDDDD">SHOP BY BRANDS ></a>
             </div>
         </div>
         <div class="col-md-7 ms-auto img-1">
@@ -123,10 +123,10 @@
         <div class="row">
             <div class="col d-flex flex-wrap gap-1 justify-content-center">
                 <div class="col-md-6 img-men" style="width:49%">
-                    <a href="#" class="text-decoration-none"><p class="text-white fw-semibold fs-5 ms-4 mt-4">MEN COLLECTIONS ></p></a>
+                    <a href="{{  route('product.men')  }}" class="text-decoration-none"><p class="text-white fw-semibold fs-5 ms-4 mt-4">MEN COLLECTIONS ></p></a>
                 </div>
                 <div class="col-md-6 img-women" style="width:49%">
-                    <a href="#" class="text-decoration-none"><p class="text-white fw-semibold fs-5 ms-4 mt-4">WOMEN COLLECTIONS ></p></a>
+                    <a href="{{  route('product.women')  }}" class="text-decoration-none"><p class="text-white fw-semibold fs-5 ms-4 mt-4">WOMEN COLLECTIONS ></p></a>
                 </div>
             </div>
         </div>
