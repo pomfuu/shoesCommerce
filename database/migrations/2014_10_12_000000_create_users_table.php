@@ -18,6 +18,9 @@ return new class extends Migration
             $table->text('image')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->unique();
+            $table->string('payment')->nullable();
+            $table->string('address')->nullable();
+            $table->date('dob')->nullable();
             $table->enum('role', ['admin','vendor','user'])->default('user');
             $table->enum('status', ['active','inactive'])->default('active');
             $table->timestamp('email_verified_at')->nullable();

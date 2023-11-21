@@ -2,10 +2,13 @@
 
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\VendorController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\UserDashboardController;
 use App\Http\Controllers\Frontend\UserProfileController;
+use App\Http\Controllers\MenController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WomenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,7 +42,8 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
-
-
-
+Route::prefix('/product')->group(function(){
+    Route::get('/brand', [BrandController::class, 'index'])->name('product.brand');
+    Route::get('/women', [WomenController::class, 'index'])->name('product.women');
+    Route::get('/men', [MenController::class, 'index'])->name('product.men');
+});

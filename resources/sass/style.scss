@@ -1,8 +1,35 @@
 body{
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Onest', sans-serif;
+    background-color: #FFFFFC;
 }
 
 :root{
     --input-border: #b8b8b8;
+}
 
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #FFFFFC;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #1e1e1e;
+    border-radius: 5px;
+}
+
+.nav-link{
+    color: #1e1e1e;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+}
+
+.nav-link:hover{
+    color: #E19827;
+}
+
+.nav-link:active{
+    color: #1e1e1e;
 }
