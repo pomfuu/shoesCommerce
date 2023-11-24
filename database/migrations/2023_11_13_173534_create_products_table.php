@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('category');
             $table->string('brand');
+            $table->string('gender');
             $table->float('averageStar')->default(0);
         });
     }
