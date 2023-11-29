@@ -7,8 +7,30 @@ use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
-    public function index(){
-        $cards = Product::all();
-        return view('brand', compact('cards'));
+    public function index(Request $request){
+        $cards = Product::query();
+
+        $sorting = $request->input('sort');
+        $selected = $request->input('sort');
+        switch ($sorting) {
+            case 'Price_Lowest_to_Highest':
+                $cards->orderBy('price', 'asc');
+                break;
+            case 'Price_Highest_to_Lowest':
+                $cards->orderBy('price', 'desc');
+                break;
+            case 'Newest_Arrival':
+                $cards->latest();
+                break;
+            case 'Highest_Rating':
+                $cards->orderBy('averageStar', 'desc');
+                break;
+            default:
+        }
+
+        $cards = $cards->get();
+        $cards = $cards->groupBy('brand');
+
+        return view('brand', compact('cards','selected'));
     }
 }
