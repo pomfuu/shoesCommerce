@@ -9,6 +9,7 @@ use App\Http\Controllers\Frontend\UserProfileController;
 use App\Http\Controllers\MenController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WomenController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,4 +47,7 @@ Route::prefix('/product')->group(function(){
     Route::get('/brand', [BrandController::class, 'index'])->name('product.brand');
     Route::get('/women', [WomenController::class, 'index'])->name('product.women');
     Route::get('/men', [MenController::class, 'index'])->name('product.men');
+    Route::get('/detail/{id}', [ProductController::class, 'productDetails'])->name('product.detail');
+    Route::post('/detail/{id}/add-to-cart', [ProductController::class, 'addToCart'])->name('detail.addToCart');
+    Route::post('/detail/{id}/check-out', [ProductController::class, 'instantCheckOut'])->name('detail.instantCheckOut');
 });

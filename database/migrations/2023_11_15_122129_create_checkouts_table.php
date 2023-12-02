@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->decimal('total', 8, 2);
+            $table->foreignId('product_id')->constrained();
+            $table->integer('qty');
+            $table->integer('size');
+            $table->integer('total');
             $table->timestamps();
         });
     }
