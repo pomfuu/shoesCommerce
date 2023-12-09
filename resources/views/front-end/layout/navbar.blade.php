@@ -19,7 +19,7 @@
             <a class="nav-link" aria-current="page" href="#">{{ __('My Order') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">{{ __('My Cart') }}</a>
+            <a class="nav-link" aria-current="page" href="{{ route('user.cart') }}">{{ __('My Cart') }}</a>
           </li>
         </ul>
         <form class="d-flex me-2" role="search">

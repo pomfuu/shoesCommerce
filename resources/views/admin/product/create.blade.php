@@ -26,10 +26,10 @@
             <input type="number" class="form-control" name="price" id="price" value="{{ old('price') }}" required>
         </div>
         
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="image_id">Image ID</label>
             <input type="number" class="form-control" name="image_id" id="image_id" value="{{ old('image_id') }}" required>
-        </div>
+        </div> --}}
         
         <div class="form-group">
             <label for="category">Category</label>

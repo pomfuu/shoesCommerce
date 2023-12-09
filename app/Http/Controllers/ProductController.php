@@ -11,6 +11,9 @@ use App\Models\Size;
 use App\Models\Review;
 use App\Models\Cart;
 use App\Models\Checkout;
+use App\Models\Category;
+use App\Models\Payment;
+use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
@@ -89,6 +92,8 @@ class ProductController extends Controller
     public function InstantCheckOut(Request $request, $id){
 
         $product = Product::find($id);
+        $category = Category::all()->where('id', $product->category);
+        $payment = Payment::all(); 
         $user = Auth::user();
 
         $request->validate([
@@ -97,30 +102,39 @@ class ProductController extends Controller
             'size' => 'required|numeric',
         ]);
 
-        $checkItem = Checkout::where('user_id', $user->id)->first();
-        if($checkItem){
+        $checkItem = Checkout::where('user_id', $user->id)->where('status', 'instant')->first();
+        $checkOrder = Order::where('user_id', $user->id)->where('status', 'unpaid')->first();
+        if($checkOrder){
 
-            $checkItem->update([
-                'user_id' => $user->id,
-                'product_id' => $product->id,
-                'qty' => $request->input('quantity'),
-                'size' => $request->input('size'),
-                'total' => ($request->input('quantity') * $product->price),
-            ]);
-        }else{
-            
-            Checkout::create([
+            return redirect()->route('product.detail', ['id' => $id])->with('error', 'Please finish your current order payment first.');
+        }
+        else{
 
-                'user_id' => $user->id,
-                'product_id' => $product->id,
-                'qty' => $request->input('quantity'),
-                'size' => $request->input('size'),
-                'total' => ($request->input('quantity') * $product->price),
-            ]);
-        } 
+            if($checkItem){
+    
+                $checkItem->update([
+                    'product_id' => $product->id,
+                    'qty' => $request->input('quantity'),
+                    'size' => $request->input('size'),
+                    'total' => ($request->input('quantity') * $product->price),
+                ]);
+            }else{
+                
+                Checkout::create([
+    
+                    'user_id' => $user->id,
+                    'product_id' => $product->id,
+                    'qty' => $request->input('quantity'),
+                    'size' => $request->input('size'),
+                    'total' => ($request->input('quantity') * $product->price),
+                    'status' => 'instant',
+                ]);
+            } 
+        }
 
-        $checkout = Checkout::all();
+        $checkouts = Checkout::where('status', 'instant')->get();
+        // $checkouts = Checkout::all();
 
-        return view('checkout', compact('product', 'user', 'checkout'));
+        return view('checkout', compact('product', 'category', 'user', 'checkouts', 'payment'));
     }
 }

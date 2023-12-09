@@ -6,8 +6,12 @@
 
         @if(session('success'))
             <div class="action-alert alert alert-success text-center">
-                {{ session('success') }};
+                {{ session('success') }}
             </div>
+        @elseif (session('error'))
+            <div class="action-alert alert alert-danger text-center">
+                {{ session('error') }}
+            </div>           
         @endif
 
         <div class="row gap-5">
@@ -336,7 +340,7 @@
     </script>
 
     <script>
-        $(".action-alert").delay(5000).fadeOut(500)
+        $(".action-alert").delay(10000).fadeOut(500)
     </script>
 
 <script>
@@ -344,9 +348,9 @@
         var action = event.submitter.getAttribute('value');
 
         if (action === 'cart') {
-            this.action = "{{ route('detail.addToCart', ['id' => $products->id]) }}";
+            this.action = "{{ route('user.detail.addToCart', ['id' => $products->id]) }}";
         } else if (action === 'buy') {
-            this.action = "{{ route('detail.instantCheckOut', ['id' => $products->id]) }}";
+            this.action = "{{ route('user.detail.instantCheckOut', ['id' => $products->id]) }}";
         }
     });
 </script>

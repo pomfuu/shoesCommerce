@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             GenderSeeder::class,
             BrandSeeder::class,
             CategorySeeder::class,
+            PaymentSeeder::class,
         ]);
     }
 }
