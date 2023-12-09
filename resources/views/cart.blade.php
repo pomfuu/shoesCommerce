@@ -1,5 +1,5 @@
 @extends('front-end.layout.master')
-@section('title', 'Instant Checkout')
+@section('title', 'Cart')
 @section('content')
 
     @foreach ($category as $cat)
