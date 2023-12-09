@@ -9,6 +9,10 @@ use App\Http\Controllers\Frontend\UserProfileController;
 use App\Http\Controllers\MenController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WomenController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\MyorderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +36,13 @@ Route::group(['middleware' =>['auth', 'verified'], 'prefix' => 'user', 'as' => '
     Route::get('dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
     Route::get('profile', [UserProfileController::class, 'index'] )->name('profile');
     Route::put('profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');
+    Route::get('cart', [CartController::class, 'index'])->name('cart');
+    Route::delete('cart/{cart}', [CartController::class, 'destroy'])->name('destroy');
+    Route::post('cart/checkout', [CartController::class, 'editQty'])->name('cart.checkout');
+    Route::post('{id}/add-to-cart', [ProductController::class, 'addToCart'])->name('detail.addToCart');
+    Route::post('check-out/{id}', [ProductController::class, 'instantCheckOut'])->name('detail.instantCheckOut');
+    Route::post('instant/order/{id}', [OrderController::class, 'index'])->name('instant.order');
+    Route::get('myorder', [MyorderController::class, 'index'])->name('myorder');
 });
 
 Route::middleware('auth')->group(function () {
@@ -46,4 +57,10 @@ Route::prefix('/product')->group(function(){
     Route::get('/brand', [BrandController::class, 'index'])->name('product.brand');
     Route::get('/women', [WomenController::class, 'index'])->name('product.women');
     Route::get('/men', [MenController::class, 'index'])->name('product.men');
+    Route::get('/detail/{id}', [ProductController::class, 'productDetails'])->name('product.detail');
 });
+
+// Route::prefix('/transaction')->group(function(){
+
+//     Route::get('/cart', [CartController::class, 'index'])->name('transaction.cart');
+// });

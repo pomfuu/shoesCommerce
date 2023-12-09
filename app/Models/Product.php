@@ -12,4 +12,24 @@ class Product extends Model
     protected $primaryKey = 'id';
     protected $timestamp = true;
     protected $guarded = [];
+
+    public function images(){
+
+        return $this->hasOne(Image::class);
+    }
+
+    public function brands()
+    {
+        return $this->belongsTo(Brand::class, 'brand');
+    }
+
+    public function sizes(){
+
+        return $this->hasMany(Size::class);
+    }
+
+    public function carts(){
+
+        return $this->hasMany(Cart::class);
+    }
 }

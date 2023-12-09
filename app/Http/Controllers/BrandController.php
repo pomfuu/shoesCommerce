@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Image;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
     public function index(Request $request){
+        $images = Image::all();
         $cards = Product::query();
 
         $sorting = $request->input('sort');
@@ -31,6 +34,6 @@ class BrandController extends Controller
         $cards = $cards->get();
         $cards = $cards->groupBy('brand');
 
-        return view('brand', compact('cards','selected'));
+        return view('brand', compact('images','cards','selected'));
     }
 }

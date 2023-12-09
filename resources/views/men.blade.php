@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col d-flex flex-wrap">
                 @foreach ( $cards as $card )
-                @include('card')
+                    @include('card')
                 @endforeach
             </div>
         </div>

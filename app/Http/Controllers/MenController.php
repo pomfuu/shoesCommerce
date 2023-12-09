@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Image;
+use App\Models\Sex;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class MenController extends Controller
 {
     public function index(Request $request){
-        $productbyGender = Product::whereIn('gender', ['men', 'unisex']);
+        $images = Image::all();
+        $genders = Sex::all();
+        $categories = Category::all();
+        $productbyGender = Product::whereIn('gender', ['1', '3']);
 
         $sorting = $request->input('sort');
         $selected = $request->input('sort');
@@ -30,6 +36,6 @@ class MenController extends Controller
 
         $cards = $productbyGender->get();
 
-        return view('men', compact('cards','selected'));
+        return view('men', compact('images','cards','selected', 'genders', 'categories'));
     }
 }
