@@ -16,7 +16,7 @@
             <a class="nav-link" aria-current="page" href="{{  route('product.brand')  }}">{{ __('Brand') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">{{ __('My Order') }}</a>
+            <a class="nav-link" aria-current="page" href="{{ route('user.myorder') }}">{{ __('My Order') }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="{{ route('user.cart') }}">{{ __('My Cart') }}</a>
