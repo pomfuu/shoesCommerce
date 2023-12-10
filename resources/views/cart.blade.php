@@ -27,8 +27,8 @@
     <div class="container mt-5">
         {{-- <form action=""> --}}
             
-            <div class="row m-0">
-                <div class="col-8 item-list-container p-4">
+            <div class="row m-0 shadow rounded">
+                <div class="col-8 item-list-container p-5">
                     <div class="">
                         <div class="row mb-3">
                             <div class="col fs-4 fw-semibold my-auto">
@@ -43,9 +43,9 @@
                                     
                                     <div class="item-container">
                                         <div class="separator-line"></div>
-                                        <div class="row">
-                                            <div class="col-1 my-5"></div>
-                                            <div class="col my-auto">
+                                        <div class="row m-0">
+                                            {{-- <div class="col-1 my-5"></div> --}}
+                                            <div class="col my-4 ms-4">
                                                 <span class="item-tag fw-light">{{ $product->brand }}</span>
                                                 <p class="m-0 fw-semibold fs-5">{{ $product->name }}</p>
                                             </div>
@@ -53,7 +53,7 @@
                                                 <span class="item-tag fw-light">{{ $cat->name }}</span>
                                                 <p class="m-0 fw-semibold">Size : {{ $cart->size }}</p>
                                             </div>
-                                            <div class="col-2 my-auto">
+                                            <div class="col-2 my-auto pe-0">
                                             <form method="post" action="{{ route('user.cart.checkout', ['id' => $cart->id]) }}" id="checkoutForm">
                                                 <div class="input-group">
                                                     <button
@@ -69,15 +69,15 @@
                                                 </div>
                                             </form>
                                             </div>
-                                            <div class="col-1"></div>
-                                            <div class="col my-auto">
+                                            <div class="col-1 "></div>
+                                            <div class="col-2 my-auto">
                                                 <div class="mx-auto">
-                                                    <span class="item-tag fw-light">Price per items</span>
+                                                    <p class="item-tag fw-light m-0">Price per items</p>
                                                     <p class="fw-medium m-0">Rp {{ number_format($product->price, 0, '.', '.') }}
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div class="col-2 my-auto text-center">
+                                            <div class="col-1 my-auto text-center">
                                                 <form id="delete-form" action="{{ route('user.destroy', ['cart' => $cart->id]) }}" method="post" class="d-inline">
                                                     @method('DELETE')
                                                     @csrf
@@ -89,10 +89,17 @@
                                 @endif
                             @endforeach
                         @endforeach
+                        @forelse($cartItems as $carts)
+                        @empty
+                            <div class="separator-line mb-3"></div>
+                            <div class="alert alert-light text-center" role="alert">
+                                No item in cart. Check our product <a href="{{ route('product.brand') }}" class="text-primary fw-medium ">here!</a>
+                            </div>
+                        @endforelse
                         <div class="separator-line"></div>
                     </div>
                 </div>
-                <div class="col-4 summary-container py-4 px-5">
+                <div class="col-4 summary-container p-5">
                     <div class="col my-auto">
                         <p class="fs-5 fw-semibold">Summary</p>
                     </div>
@@ -115,9 +122,13 @@
                             <p class="fs-5 fw-semibold">Rp {{ number_format($totalPrice, 0, '.', '.') }}</p>
                         </div>
                     </div>
-                    <p class="text-secondary">Prices shown include all applicable taxes.</p>
-                    <div class="mt-4">
-                        <button class="checkout-btn bg-dark text-white fw-semibold " onclick="submitForm()">CHECKOUT</button>
+                    <p class="text-secondary text-end">Prices shown include all applicable taxes.</p>
+                    <div class="mt-5">
+                        @if($totalQty > 0)
+                            <button class="checkout-btn bg-dark text-white fw-semibold " onclick="submitForm()">CHECKOUT</button>
+                        @else
+                            <button class="checkout-btn bg-dark text-light fw-semibold" disabled>CHECKOUT HERE LATER</button>
+                        @endif
                     </div>
                 </div>
             </div>

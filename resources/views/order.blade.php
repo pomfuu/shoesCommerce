@@ -2,14 +2,14 @@
 @section('title', 'Instant Checkout')
 @section('content')
 
-@foreach($orders as $ord)@endforeach
+@foreach($ordersums as $ord)@endforeach
 @foreach($payments as $pay)@endforeach
 
     <div class="container mt-5">
         <div class="d-flex justify-content-center ">
             <div class="content-container bg-white shadow">
                 <p class="fw-semibold text-center m-0">Order Total Price</p>
-                <p class="fw-medium fs-2 text-center">Rp {{ number_format($ord->total, 0, '.', '.') }}</p>
+                <p class="fw-medium fs-2 text-center">Rp {{ number_format($ord->sum_total, 0, '.', '.') }}</p>
                 
                 <div class="separator-line my-5"></div>
                 <div class="d-flex justify-content-center">

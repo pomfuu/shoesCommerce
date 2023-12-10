@@ -11,7 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WomenController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,7 +40,8 @@ Route::group(['middleware' =>['auth', 'verified'], 'prefix' => 'user', 'as' => '
     Route::post('cart/checkout', [CartController::class, 'editQty'])->name('cart.checkout');
     Route::post('{id}/add-to-cart', [ProductController::class, 'addToCart'])->name('detail.addToCart');
     Route::post('check-out/{id}', [ProductController::class, 'instantCheckOut'])->name('detail.instantCheckOut');
-    Route::post('instant/order/{id}', [OrderController::class, 'index'])->name('instant.order');
+    Route::post('instant/order/{id}', [CheckoutController::class, 'instantOrder'])->name('instant.order');
+    Route::post('cart/order', [CheckoutController::class, 'cartOrder'])->name('cart.order');
 });
 
 Route::middleware('auth')->group(function () {

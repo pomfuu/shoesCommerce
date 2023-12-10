@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" style="background-color: #FFFFFC">
+<nav class="navbar navbar-expand-lg sticky-top " style="background-color: #FFFFFC">
     <div class="container-fluid p-2 align-items-center justify-content-center" style="margin-inline: 9vw; font-size: 1rem">
       <a class="navbar-brand fw-semibold fs-4 m-0" href=" {{  route('home')  }} ">{{ __('Schuhe') }}</a>
       <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

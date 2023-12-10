@@ -22,15 +22,15 @@
                 </div>
 
             </div>
-            <div class="shadow rounded bg-transparent">
+            <div class="shadow rounded">
                 <div class="row m-0">
-                    <div class="col-8 item-list-container p-4">
+                    <div class="col-8 item-list-container p-5 rounded-start">
                         <div class="">
                             <div class="row mb-3">
                                 <div class="col fs-4 fw-semibold my-auto"><p class="m-0">Shopping Cart</p></div>
                                 <div class="col text-end my-auto">Instant Checkout</div>
                             </div>
-                            <div class="item-container">
+                            <div class="item-container ">
                                 <div class="separator-line"></div>
                                 <div class="row">
                                     {{-- untuk handle margin vertical --}}
@@ -73,7 +73,7 @@
                             <div class="separator-line"></div>
                         </div>
                     </div>
-                    <div class="col-4 summary-container py-4 px-5">
+                    <div class="col-4 summary-container py-5 px-5 rounded-end">
                         <div class="col my-auto"><p class="fs-5 fw-semibold">Summary</p></div>
                         <div class="separator-line"></div>
                         <div class="row mt-3">
@@ -115,6 +115,7 @@
                             @endforeach
                         </select>
                         <div class="separator-line"></div>
+                        <p class="text-secondary text-end mt-2">Prices shown include all applicable taxes.</p>
                         <div class="mt-4">
                             <button type="submit" class="checkout-btn bg-dark text-white fw-semibold ">PROCEED TO PAYMENT</button>
                         </div>
@@ -135,7 +136,7 @@
         .item-list-container{
     
             background-color: #FFFFFF;
-            border-radius: 5px 0px 0px 5px;
+            /* border-radius: 5px 0px 0px 5px; */
         }
         .item-tag{
 
@@ -144,7 +145,7 @@
         .summary-container{
     
             background-color: #DDDDDD;
-            border-radius: 0px 5px 5px 0px;
+            /* border-radius: 0px 5px 5px 0px; */
         }
     
         .checkout-btn{

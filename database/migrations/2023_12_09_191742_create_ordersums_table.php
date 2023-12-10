@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('confirmations', function (Blueprint $table) {
+        Schema::create('ordersums', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained;
+            $table->integer('payment_id');
+            $table->integer('sum_total');
+            $table->integer('delivery_fee');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('confirmations');
+        Schema::dropIfExists('ordersums');
     }
 };

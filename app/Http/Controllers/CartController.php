@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Checkout;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Payment;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -30,8 +31,30 @@ class CartController extends Controller
     public function editQty(Request $request){
 
         $users = Auth::user();
-        $cart = Cart::where('user_id', $users->id)->get();
+        $carts = Cart::where('user_id', $users->id)->get();
         $product = Product::all();
+        $payment = Payment::all(); 
+
+        $total = 0;
+        $totalPrice = 0;
+        $totalQty = 0;
+        $deliveryFee = 0;
+
+        foreach ($product as $prd){
+            foreach ($carts as $cart){
+                if ($cart->product_id == $prd->id){
+
+                        $total = $prd->price * $cart->qty;
+                        $totalPrice = $totalPrice + $total;
+                        $totalQty = $totalQty + $cart->qty;
+                }
+            }    
+        }
+
+        foreach($product as $prd){
+
+            $category = Category::all()->where('id', $prd->category);
+        }
         
         $request->validate([
             'quantity' => 'required|numeric|min:1',
@@ -40,24 +63,24 @@ class CartController extends Controller
         // Delete all existing Checkout records for the user
         Checkout::where('user_id', $users->id)->where('status', 'cart')->delete();
     
-        foreach ($cart as $carts) {
-            $matchingProduct = $product->firstWhere('id', $carts->product_id);
+        foreach ($carts as $cart) {
+            $matchingProduct = $product->firstWhere('id', $cart->product_id);
     
             if ($matchingProduct) {
-                $total = $matchingProduct->price * $carts->qty;
+                $total = $matchingProduct->price * $cart->qty;
     
                 // Create a new Checkout record
                 Checkout::create([
-                    'user_id' => $carts->user_id,
-                    'product_id' => $carts->product_id,
-                    'qty' => $carts->qty,
-                    'size' => $carts->size,
+                    'user_id' => $cart->user_id,
+                    'product_id' => $cart->product_id,
+                    'qty' => $cart->qty,
+                    'size' => $cart->size,
                     'total' => $total,
                     'status' => 'cart',
                 ]);
             }
         }
     
-        return view('cart-checkout', compact('users', 'cart'));
+        return view('cart-checkout', compact('users', 'carts', 'product', 'payment', 'category', 'totalPrice', 'totalQty'));
     }
 }

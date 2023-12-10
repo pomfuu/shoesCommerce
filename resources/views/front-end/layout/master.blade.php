@@ -19,7 +19,7 @@
     <style>
         body{
             font-family: 'Onest', sans-serif;
-            background-color: #FFFFFC;
+            background-color: #FFFFFC !important;
         }
 
         :root{
@@ -46,7 +46,7 @@
         }
 
         .nav-link:hover{
-            color: #E19827;
+            color: #E19827 !important;
         }
 
         .nav-link:active{

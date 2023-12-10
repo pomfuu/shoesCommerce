@@ -14,6 +14,7 @@ use App\Models\Checkout;
 use App\Models\Category;
 use App\Models\Payment;
 use App\Models\Order;
+use App\Models\OrderSum;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
@@ -103,8 +104,8 @@ class ProductController extends Controller
         ]);
 
         $checkItem = Checkout::where('user_id', $user->id)->where('status', 'instant')->first();
-        $checkOrder = Order::where('user_id', $user->id)->where('status', 'unpaid')->first();
-        if($checkOrder){
+        $checkOrderSum = OrderSum::where('user_id', $user->id)->where('status', 'unpaid')->first();
+        if($checkOrderSum){
 
             return redirect()->route('product.detail', ['id' => $id])->with('error', 'Please finish your current order payment first.');
         }

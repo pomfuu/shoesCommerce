@@ -8,7 +8,6 @@ use App\Models\Payment;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
-use PhpParser\Node\Stmt\ElseIf_;
 
 class OrderController extends Controller
 {
@@ -17,6 +16,7 @@ class OrderController extends Controller
 
         $users = Auth::user();
         $checkouts = Checkout::where('user_id', $users->id)->where('status', 'instant')->get();
+        // $products = Product::find($id);
 
         $checkOrder = Order::where('user_id', $users->id)->where('status', 'unpaid')->first();
 
@@ -42,6 +42,7 @@ class OrderController extends Controller
 
                     Order::create([
                         'user_id' => $users->id,
+                        'product_id' => $id,
                         'total' => $co->total + ($co->qty * 15000),
                         'payment_id' => $request->input('payment'),
                         'status' => 'unpaid',
@@ -51,6 +52,7 @@ class OrderController extends Controller
 
                     Order::create([
                         'user_id' => $users->id,
+                        'product_id' => $id,
                         'total' => $co->total + 50000,
                         'payment_id' => $request->input('payment'),
                         'status' => 'unpaid',

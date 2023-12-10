@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('product_id')->constrained();
+            $table->unsignedBigInteger('sum_id');
             $table->integer('total');
-            $table->integer('payment_id');
-            $table->string('status');
+
+            $table->foreign('sum_id')->references('id')->on('ordersums')->onDelete('cascade');
         });
     }
 

@@ -271,6 +271,11 @@
             background-color: #DDDDDD;
         }
 
+        .min-plus-btn:hover {
+
+            background-color: #cccccc;
+        }
+
         .process-btn {
 
             color: #000000;

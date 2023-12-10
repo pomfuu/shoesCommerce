@@ -44,8 +44,9 @@
 </section>
 <style>
     .btn:hover{
-        background-color: #DDDDDD !important;
+        background-color: #E19827 !important;
         color: #1e1e1e !important;
+        font-weight: 500;
         transition: 0.3ms ease-in-out;
     }
     .from-register{
