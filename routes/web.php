@@ -37,7 +37,7 @@ Route::group(['middleware' =>['auth', 'verified'], 'prefix' => 'user', 'as' => '
     Route::put('profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');
     Route::get('cart', [CartController::class, 'index'])->name('cart');
     Route::delete('cart/{cart}', [CartController::class, 'destroy'])->name('destroy');
-    Route::post('cart/checkout', [CartController::class, 'editQty'])->name('cart.checkout');
+    Route::post('cart/checkout', [CartController::class, 'cartToCheckout'])->name('cart.checkout');
     Route::post('{id}/add-to-cart', [ProductController::class, 'addToCart'])->name('detail.addToCart');
     Route::post('check-out/{id}', [ProductController::class, 'instantCheckOut'])->name('detail.instantCheckOut');
     Route::post('instant/order/{id}', [CheckoutController::class, 'instantOrder'])->name('instant.order');

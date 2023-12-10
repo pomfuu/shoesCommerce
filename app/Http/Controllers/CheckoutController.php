@@ -75,6 +75,8 @@ class CheckoutController extends Controller
                     'product_id' => $co->product_id,
                     'sum_id' => $orderSum->id,
                     'total' => $co->total,
+                    'qty' => $co->qty,
+                    'size' => $co->size,
                 ]);
             }
         }
@@ -154,6 +156,8 @@ class CheckoutController extends Controller
                     'product_id' => $co->product_id,
                     'sum_id' => $orderSum->id,
                     'total' => $co->total,
+                    'qty' => $co->qty,
+                    'size' => $co->size,
                 ]);
             }
         }

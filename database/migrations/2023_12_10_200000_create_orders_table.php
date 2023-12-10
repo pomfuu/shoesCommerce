@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('product_id')->constrained();
             $table->unsignedBigInteger('sum_id');
+            $table->integer('size');
+            $table->integer('qty');
             $table->integer('total');
 
             $table->foreign('sum_id')->references('id')->on('ordersums')->onDelete('cascade');

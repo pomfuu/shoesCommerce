@@ -26,6 +26,16 @@
 
     <div class="container mt-5">
         {{-- <form action=""> --}}
+
+            @if(session('success'))
+                <div class="action-alert alert alert-success text-center">
+                    {{ session('success') }}
+                </div>
+            @elseif (session('error'))
+                <div class="action-alert alert alert-danger text-center">
+                    {{ session('error') }}
+                </div>           
+            @endif
             
             <div class="row m-0 shadow rounded">
                 <div class="col-8 item-list-container p-5">
@@ -184,6 +194,10 @@
 
             });
         });
+    </script>
+
+    <script>
+        $(".action-alert").delay(10000).fadeOut(500)
     </script>
 
     <script>

@@ -11,7 +11,7 @@
                 <div class="col-8 item-list-container p-5">
                         <div class="row mb-3">
                             <div class="col fs-4 fw-semibold my-auto">
-                                <p class="m-0">Shopping Cart</p>
+                                <p class="m-0">Cart Checkout</p>
                             </div>
                             <div class="col text-end my-auto">Items</div>
                         </div>
