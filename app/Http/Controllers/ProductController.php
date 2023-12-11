@@ -14,6 +14,7 @@ use App\Models\Checkout;
 use App\Models\Category;
 use App\Models\Payment;
 use App\Models\Order;
+use App\Models\User;
 use App\Models\OrderSum;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,11 +33,13 @@ class ProductController extends Controller
         $images = Image::all();
         $genders = Sex::all();
         $sizes = Size::all();
-        $reviews = Review::all();
-
+        $reviews = Review::all()->where('product_id', $id);
+        $users = User::all();
+        
         $ratings = new Collection();
-        foreach($reviews as $rev){
 
+        foreach($reviews as $rev){
+            
             if($products->id == $rev->product_id){
 
                 $ratings->push($rev->star);
@@ -56,7 +59,7 @@ class ProductController extends Controller
         }     
         // dump($rateCounter);
 
-        return view('detail', compact('products', 'productAll', 'images', 'genders', 'sizes', 'reviews', 'countRating', 'averageRating', 'rateCounter'));
+        return view('detail', compact('products', 'productAll', 'images', 'genders', 'sizes', 'reviews', 'users', 'countRating', 'averageRating', 'rateCounter'));
 
     }
     public function addToCart(Request $request, $id){

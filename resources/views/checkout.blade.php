@@ -20,7 +20,6 @@
                         <a href="{{ route('user.profile') }}" class="d-inline-block text-end ms-4">Edit Address</a>
                     </div>
                 </div>
-
             </div>
             <div class="shadow rounded">
                 <div class="row m-0">

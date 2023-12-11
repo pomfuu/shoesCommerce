@@ -35,33 +35,34 @@
         </div>
     </div>
 
+    <style>
+        .separator-line {
+    
+            height: 1px;
+            width: 100%;
+            background-color: #000000;
+        }
+        .content-container{
+    
+            padding: 75px;
+            border-radius: 5px;
+            width: 600px;
+            border: 5px double #DDDDDD;
+        }
+        .bank-image{
+    
+            width: 200px;
+            height: auto;
+        }
+        .order-tutorial{
+    
+            text-align: justify;
+        }
+        .custom-rounded {
+    
+        border-radius: 5px;
+        }
+    </style>
+    
 @endsection
 
-<style>
-    .separator-line {
-
-        height: 1px;
-        width: 100%;
-        background-color: #000000;
-    }
-    .content-container{
-
-        padding: 75px;
-        border-radius: 5px;
-        width: 600px;
-        border: 5px double #DDDDDD;
-    }
-    .bank-image{
-
-        width: 200px;
-        height: auto;
-    }
-    .order-tutorial{
-
-        text-align: justify;
-    }
-    .custom-rounded {
-
-    border-radius: 5px;
-    }
-</style>

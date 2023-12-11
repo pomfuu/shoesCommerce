@@ -3,70 +3,103 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Checkout;
-use App\Models\Payment;
-use App\Models\Order;
 use App\Models\Product;
+use App\Models\Order;
+use App\Models\OrderSum;
+use App\Models\Payment;
+use App\Models\Checkout;
+use App\Models\Cart;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
+    public function myOrder(){
 
-    public function index(Request $request, $id){
+        // $user = Auth::user();
+        // $orders = DB::table('orders')
+        // ->join('products', 'orders.id', '=', 'products.id')
+        // ->join('product_images', 'products.image_id', '=', 'product_images.id')
+        // ->where('orders.user_id', $user->id)
+        // ->get();
 
         $users = Auth::user();
-        $checkouts = Checkout::where('user_id', $users->id)->where('status', 'instant')->get();
-        // $products = Product::find($id);
+        $products = Product::all();
+        $ordersums = $ordersums = OrderSum::where('user_id', $users->id)->orderBy('id', 'desc')->get();
+        $orders = Order::all();
+        $payments = Payment::all();
 
-        $checkOrder = Order::where('user_id', $users->id)->where('status', 'unpaid')->first();
+        // Return the view with the orders data
+        // return view('my-order', ['orders' => $orders]);
+        return view('my-order', compact('products', 'ordersums', 'orders', 'payments', 'users'));
+    }
 
-        if($request->input('payment') == null){
+    public function completed($id){
 
-            return redirect()->route('product.detail', ['id' => $id])->with('error', 'Please choose your payment method first.');
-        }
-        elseif($checkOrder){
+        $ordersums = OrderSum::find($id);
+        if($ordersums->status == 'completed'){
 
-            $orders = Order::where('user_id', $users->id)->where('status', 'unpaid')->get();
-            foreach($orders as $ord){
-    
-                $payments = Payment::all()->where('id', $ord->payment_id);
-            }
-    
-            return view('order', compact('users', 'checkouts', 'payments', 'orders'));
+            return redirect()->route('user.myorder')->with('warning', 'You already finished the order.');
         }
         else{
 
-            foreach($checkouts as $co){
-                
-                if($co->qty <= 3){
+            $ordersums->update([
 
-                    Order::create([
-                        'user_id' => $users->id,
-                        'product_id' => $id,
-                        'total' => $co->total + ($co->qty * 15000),
-                        'payment_id' => $request->input('payment'),
-                        'status' => 'unpaid',
-                    ]);
-                }
-                else{
+                'status' => 'completed',
+            ]);
+        }
+        return redirect()->route('user.myorder')->with('success', 'Thanks for your order. We hope you enjoy it :)');
+    }
 
-                    Order::create([
-                        'user_id' => $users->id,
-                        'product_id' => $id,
-                        'total' => $co->total + 50000,
-                        'payment_id' => $request->input('payment'),
-                        'status' => 'unpaid',
-                    ]);
-                }
+    public function cancel($id){
+
+        $ordersums = OrderSum::find($id);
+        if($ordersums->status == 'cancelled'){
+
+            return redirect()->route('user.myorder')->with('warning', 'You already cancelled this order.');
+        }
+        else{
+
+            $ordersums->update([
+
+                'status' => 'cancelled',
+            ]);
+        }
+        return redirect()->route('user.myorder')->with('success', 'Successfully cancelled your order.');
+    }
+
+    public function checkOrder(){
+
+        $users = Auth::user();
+        $checkouts = Checkout::where('user_id', $users->id)->where('status', 'instant')->get();
+
+        $total = 0;
+        $totalPrice = 0;
+        $totalQty = 0;
+        $deliveryFee = 0;
+
+        foreach($checkouts as $co){
+            
+            $totalQty = $co->qty;
+            $totalPrice = $co->total;
+            if($totalQty > 3){
+
+                $deliveryFee = 50000;
             }
+            else{
+
+                $deliveryFee = 15000 * $totalQty;
+            }
+
         }
 
-        $orders = Order::where('user_id', $users->id)->where('status', 'unpaid')->get();
-        foreach($orders as $ord){
+        $ordersums = OrderSum::where('user_id', $users->id)->where('status', 'unpaid')->get();
+        foreach($ordersums as $ord){
 
-            $payments = Payment::all()->where('id', $ord->payment_id);
+            $payments = Payment::all()->where('id', $ord->payment_id);  
         }
 
-        return view('order', compact('users', 'checkouts', 'payments', 'orders'));
+        return view('order', compact('users', 'checkouts', 'payments', 'ordersums', 'totalPrice', 'totalQty'));
     }
 }

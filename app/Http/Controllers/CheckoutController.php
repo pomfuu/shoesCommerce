@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
-
+    
     public function instantOrder(Request $request, $id){
 
         $users = Auth::user();

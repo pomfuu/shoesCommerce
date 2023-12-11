@@ -52,6 +52,10 @@
         .nav-link:active{
             color: #1e1e1e;
         }
+        .dropdown-item:hover{
+
+            color: #E19827;
+        }
     </style>
 </head>
 <body style="font-family:'Onest', sans-serif; ">

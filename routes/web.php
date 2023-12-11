@@ -12,6 +12,8 @@ use App\Http\Controllers\WomenController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +44,11 @@ Route::group(['middleware' =>['auth', 'verified'], 'prefix' => 'user', 'as' => '
     Route::post('check-out/{id}', [ProductController::class, 'instantCheckOut'])->name('detail.instantCheckOut');
     Route::post('instant/order/{id}', [CheckoutController::class, 'instantOrder'])->name('instant.order');
     Route::post('cart/order', [CheckoutController::class, 'cartOrder'])->name('cart.order');
+    Route::get('my-order', [OrderController::class, 'myOrder'])->name('myorder');
+    Route::post('order/completed/{id}', [OrderController::class, 'completed'])->name('order.completed');
+    Route::post('order/cancelled/{id}', [OrderController::class, 'cancel'])->name('order.cancelled');
+    Route::post('check-order', [OrderController::class, 'checkOrder'])->name('checkorder');
+    Route::post('order/product/review/{id}', [ReviewController::class, 'reviewProduct'])->name('review');
 });
 
 Route::middleware('auth')->group(function () {

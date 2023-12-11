@@ -136,10 +136,6 @@
             </div>
         </div>
     </div>
-
-    @foreach ($images as $img)
-        <div>{{ $img->main_image }}</div>
-    @endforeach
 </section>
 <style>
     .img-men{

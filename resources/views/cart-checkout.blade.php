@@ -6,6 +6,19 @@
     @endforeach
 
     <div class="container mt-5">
+        <div class="">
+            <div class="row m-0 gap-3">
+                <div class="col-3 custom-rounded mb-3 py-3 px-4 bg-white shadow-sm">
+                    <span class="deliver-to m-0 my-auto fw-medium ">Receiver : </span>
+                    <span class="fw-semibold">{{ $users->name }}</span>
+                </div>
+                <div class="col custom-rounded mb-3 py-3 px-4 bg-white shadow-sm">
+                    <span class="deliver-to m-0 my-auto fw-medium ">Deliver to : </span>
+                    <span class="fw-semibold">{{ $users->address }}</span>
+                    <a href="{{ route('user.profile') }}" class="d-inline-block text-end ms-4">Edit Address</a>
+                </div>
+            </div>
+        </div>
         <form method="post" action="{{ route('user.cart.order') }}">
             <div class="row m-0 shadow rounded">
                 <div class="col-8 item-list-container p-5">

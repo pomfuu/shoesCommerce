@@ -135,9 +135,9 @@
                     <p class="text-secondary text-end">Prices shown include all applicable taxes.</p>
                     <div class="mt-5">
                         @if($totalQty > 0)
-                            <button class="checkout-btn bg-dark text-white fw-semibold " onclick="submitForm()">CHECKOUT</button>
+                            <button class="checkout-btn text-white fw-semibold " onclick="submitForm()">CHECKOUT</button>
                         @else
-                            <button class="checkout-btn bg-dark text-light fw-semibold" disabled>CHECKOUT HERE LATER</button>
+                            <button class="checkout-btn bg-dark text-white-50 fw-semibold" disabled>CHECKOUT HERE LATER</button>
                         @endif
                     </div>
                 </div>
@@ -173,6 +173,11 @@
             width: 100%;
             height: 48px;
             border: none;
+            background-color: #212529;
+        }
+        .checkout-btn:hover{
+
+            background-color: #34383c;
         }
         .custom-rounded {
 

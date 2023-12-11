@@ -4,46 +4,51 @@
 
     <div class="container mt-5">
 
-        @if(session('success'))
+        @if (session('success'))
             <div class="action-alert alert alert-success text-center">
                 {{ session('success') }}
             </div>
         @elseif (session('error'))
             <div class="action-alert alert alert-danger text-center">
                 {{ session('error') }}
-            </div>           
+            </div>
         @endif
 
         <div class="row gap-5">
             <div class="col">
                 @foreach ($images as $img)
-                    @if($products->id == $img->id)
+                    @if ($products->id == $img->id)
                         <div class="bg-dark item-main-img">
-                            <img src="{{ asset('./storage/product/' .$img->main_image. '.jpg') }}" alt="" class="item-main-img">
+                            <img src="{{ asset('./storage/product/' . $img->main_image . '.jpg') }}" alt=""
+                                class="item-main-img">
                         </div>
                         <div class="row m-0 gap-2 g-2">
                             {{-- Second Image --}}
                             <div class="col p-0">
                                 <div class="item-img bg-dark">
-                                    <img src="{{ asset('./storage/product/' .$img->sec_image. '.jpg') }}" alt="" class="item-img">
+                                    <img src="{{ asset('./storage/product/' . $img->sec_image . '.jpg') }}" alt=""
+                                        class="item-img">
                                 </div>
                             </div>
                             {{-- Third Image --}}
                             <div class="col p-0">
                                 <div class="item-img bg-dark">
-                                    <img src="{{ asset('./storage/product/' .$img->third_image. '.jpg') }}" alt="" class="item-img">
+                                    <img src="{{ asset('./storage/product/' . $img->third_image . '.jpg') }}" alt=""
+                                        class="item-img">
                                 </div>
                             </div>
                             {{-- Fourth Image --}}
                             <div class="col p-0">
                                 <div class="item-img bg-dark">
-                                    <img src="{{ asset('./storage/product/' .$img->fourth_image. '.jpg') }}" alt="" class="item-img">
+                                    <img src="{{ asset('./storage/product/' . $img->fourth_image . '.jpg') }}" alt=""
+                                        class="item-img">
                                 </div>
                             </div>
                             {{-- Fifth Image --}}
                             <div class="col p-0">
                                 <div class="item-img bg-dark">
-                                    <img src="{{ asset('./storage/product/' .$img->fifth_image. '.jpg') }}" alt="" class="item-img">
+                                    <img src="{{ asset('./storage/product/' . $img->fifth_image . '.jpg') }}" alt=""
+                                        class="item-img">
                                 </div>
                             </div>
                         </div>
@@ -69,7 +74,7 @@
                     <div class="size-container">
                         <p class="m-0 mb-1 fs-5 fw-semibold">Choose your Size</p>
                         <div class="row m-0 boxed gap-2">
-                            @foreach($sizes as $size)
+                            @foreach ($sizes as $size)
                                 <input type="radio" id="{{ $size->size }}" name="size" value="{{ $size->size }}">
                                 <label for="{{ $size->size }}">{{ $size->size }}</label>
                             @endforeach
@@ -83,8 +88,9 @@
                                         class="min-plus-btn btn btn-outline-secondary border-black border-1 fs-5 fw-semibold text-dark"
                                         type="button" id="minus-btn">-</button>
                                     <input type="text"
-                                        class="form-control text-center border-black border-1 py-2 fw-semibold " name="quantity"
-                                        placeholder="1" aria-label="Example text with two button addons" min="1" value="1" id="quantity">
+                                        class="form-control text-center border-black border-1 py-2 fw-semibold "
+                                        name="quantity" placeholder="1" aria-label="Example text with two button addons"
+                                        min="1" value="1" id="quantity">
                                     <button
                                         class="min-plus-btn btn btn-outline-secondary border-black border-1 fs-5 fw-semibold text-dark"
                                         type="button" id="plus-btn">+</button>
@@ -96,10 +102,14 @@
                         </div>
                         <div class="row m-0 gap-3">
                             <div class="col p-0">
-                                <button type="submit" class="process-btn d-block border-0 text-decoration-none py-2 px-4 text-center fw-semibold w-100 " name="process" value="cart">ADD TO CART</button>
+                                <button type="submit"
+                                    class="process-btn d-block border-0 text-decoration-none py-2 px-4 text-center fw-semibold w-100 "
+                                    name="process" value="cart">ADD TO CART</button>
                             </div>
                             <div class="col p-0">
-                                <button type="submit" class="process-btn d-block border-0 text-decoration-none py-2 px-4 text-center fw-semibold w-100 " name="process" value="buy">BUY NOW</button>
+                                <button type="submit"
+                                    class="process-btn d-block border-0 text-decoration-none py-2 px-4 text-center fw-semibold w-100 "
+                                    name="process" value="buy">BUY NOW</button>
                             </div>
                             <div class="col-1 p-0"></div>
                         </div>
@@ -122,58 +132,61 @@
                         $rating = [5, 4, 3, 2, 1];
                     @endphp
                     <div class="row">
-                        @foreach($rating as $rat)
-                        <div class="col">
-                            <div class="d-block">
-                                @for ($i = 0; $i < $rat; $i++)
-                                    <i class="bi bi-star-fill me-1 fs-5 text-warning "></i>
+                        @foreach ($rating as $rat)
+                            <div class="col">
+                                <div class="d-block">
+                                    @for ($i = 0; $i < $rat; $i++)
+                                        <i class="bi bi-star-fill me-1 fs-5 text-warning "></i>
                                     @endfor
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-2 ">
-                            <p class="m-0 mt-1 fw-medium text-end">{{ $rateCounter[$rat-1] }}</p>
-                        </div>
-                        <div class="separator-line mt-1 mb-2"></div>
+                            <div class="col-2 ">
+                                <p class="m-0 mt-1 fw-medium text-end">{{ $rateCounter[$rat - 1] }}</p>
+                            </div>
+                            <div class="separator-line mt-1 mb-2"></div>
                         @endforeach
                     </div>
 
-                        
+
                 </div>
                 {{-- Brand Information --}}
                 <div class="brand-information-content px-5 py-5 mt-3 custom-rounded">
                     <div class="brand-img rounded-circle mx-auto"></div>
                     <p class="fs-5 fw-semibold text-center mt-3 mb-4">{{ $products->brand }}</p>
                     <a href="{{ route('product.brand') }}"
-                        class="d-block bg-light text-decoration-none py-2 mx-2 text-dark text-center custom-rounded">Visit Brand Page</a>
+                        class="d-block bg-light text-decoration-none py-2 mx-2 text-dark text-center custom-rounded">Visit
+                        Brand Page</a>
                 </div>
             </div>
             {{-- Review & Rating --}}
             <div class="col p-0">
-                @foreach ($reviews as $rev)     
-                    @if ($products->id == $rev->product_id)
-                        <div class="review-container bg-light custom-rounded shadow  p-4 mb-2">
-                            <div class="row m-0">
-                                <div class="col">
-                                    <span class="me-2 fw-semibold">Reviewer Name</span>
-                                    @for ($i = 0 ; $i < $rev->star ; $i++)
+                @foreach ($reviews as $rev)
+                    <div class="review-container bg-light custom-rounded shadow  p-4 mb-2">
+                        <div class="row m-0">
+                            <div class="col">
+                                @foreach ($users as $user)
+                                    @if ($user->id == $rev->user_id)
                                         
+                                        <span class="me-2 fw-semibold">{{ $user->name }}</span>
+                                    @endif
+                                @endforeach
+                                @for ($i = 0; $i < $rev->star; $i++)
                                     <i class="bi bi-star-fill me-1 fs-6 text-warning "></i>
-                                    @endfor
-                                </div>
-                                <div class="col">
-                                    <p class="m-0 text-end text-body-tertiary ">12/10/2019</p>
-                                </div>
+                                @endfor
                             </div>
-                            <div class="row m-0 mt-3 gap-3">
-                                <div class="col-1">
-                                    <div class="review-img"></div>
-                                </div>
-                                <div class="col">
-                                    <p class="review-comment-placeholder m-0">{{$rev->comment}}</p>
-                                </div>
+                            <div class="col">
+                                <p class="m-0 text-end text-body-tertiary ">{{ $rev->created_at }}</p>
                             </div>
                         </div>
-                    @endif
+                        <div class="row m-0 mt-3 gap-3">
+                            <div class="col-1">
+                                <div class="review-img"></div>
+                            </div>
+                            <div class="col">
+                                <p class="review-comment-placeholder m-0">{{ $rev->comment }}</p>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -183,17 +196,19 @@
         <div class="separator-line line-custom-margin"></div>
         <p class="fs-3 fw-semibold text-center mb-5">Similar Products</p>
         <div class="row m-0 gap-1">
-            @foreach($productAll as $prdAll)
-                @if(($prdAll->gender == $products->gender || $prdAll->gender == 'unisex'))
+            @foreach ($productAll as $prdAll)
+                @if ($prdAll->gender == $products->gender || $prdAll->gender == 'unisex')
                     <div class="col p-0">
                         <a href="#" class="text-decoration-none text-black">
                             <div class="#" style="width:99%">
-                                <div style="height: 27vw; object-fit: cover; background-color: #000000" class="card-img-top"alt="product image">
-                                
+                                <div style="height: 27vw; object-fit: cover; background-color: #000000"
+                                    class="card-img-top"alt="product image">
+
                                     @foreach ($images as $img)
                                         @if ($prdAll->id == $img->id)
-                                            
-                                            <img src="{{ asset('./storage/product/' .$img->main_image. '.jpg') }}" style="height: 27vw; object-fit: cover" class="card-img-top" alt="product image">
+                                            <img src="{{ asset('./storage/product/' . $img->main_image . '.jpg') }}"
+                                                style="height: 27vw; object-fit: cover" class="card-img-top"
+                                                alt="product image">
                                         @endif
                                     @endforeach
                                 </div>
@@ -240,28 +255,30 @@
             width: 100%;
             background-color: #000000;
         }
+
         .boxed label {
             display: inline-block;
             text-align: center;
             width: 65px;
             padding: 10px;
-            background-color: #DDDDDD; 
+            background-color: #DDDDDD;
             border-radius: 5px;
         }
 
-        .boxed label:hover{
+        .boxed label:hover {
 
             background-color: #cccccc;
         }
 
-            .boxed input[type="radio"] {
+        .boxed input[type="radio"] {
             display: none;
         }
 
-            .boxed input[type="radio"]:checked + label {
+        .boxed input[type="radio"]:checked+label {
             border: solid 2px green;
         }
-        .info-btn{
+
+        .info-btn {
 
             max-width: 65px;
         }
@@ -282,6 +299,7 @@
             background-color: #dddddd;
             border-radius: 5px
         }
+
         .process-btn:hover {
 
             background-color: #cccccc;
@@ -348,16 +366,16 @@
         $(".action-alert").delay(10000).fadeOut(500)
     </script>
 
-<script>
-    document.getElementById('productForm').addEventListener('submit', function (event) {
-        var action = event.submitter.getAttribute('value');
+    <script>
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            var action = event.submitter.getAttribute('value');
 
-        if (action === 'cart') {
-            this.action = "{{ route('user.detail.addToCart', ['id' => $products->id]) }}";
-        } else if (action === 'buy') {
-            this.action = "{{ route('user.detail.instantCheckOut', ['id' => $products->id]) }}";
-        }
-    });
-</script>
+            if (action === 'cart') {
+                this.action = "{{ route('user.detail.addToCart', ['id' => $products->id]) }}";
+            } else if (action === 'buy') {
+                this.action = "{{ route('user.detail.instantCheckOut', ['id' => $products->id]) }}";
+            }
+        });
+    </script>
 
 @endsection
