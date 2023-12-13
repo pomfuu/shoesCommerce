@@ -2,11 +2,12 @@
 
 @section('content')
 
-<div class="container mt-5 mb-5">
+<div class="container mt-4 mb-5">
 
     <p class="fs-2 fw-bold text-center mb-2">Product Manager</p>
     <div class="text-end mb-4">
-        <a href="{{ route('admin.product.create') }}" class="py-2 px-3 bg-primary rounded text-white fw-medium text-decoration-none fs-5">Add New Product</a>
+        <a href="{{ route('admin.brand.index') }}" class="py-2 px-3 me-2 btn btn-outline-primary rounded fw-medium text-decoration-none">Manage Brand</a>
+        <a href="{{ route('admin.product.create') }}" class="py-2 px-3 btn btn-primary rounded text-white fw-medium text-decoration-none">Add New Product</a>
     </div>
 
     @if (session('success'))

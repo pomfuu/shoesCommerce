@@ -31,25 +31,6 @@ class ManageProductController extends Controller
         return view('admin.product.create', compact('genders', 'categories', 'brands'));
     }
 
-    // public function store(Request $request){
-
-    //     $validate = $request->validate([
-
-    //         'name' => 'required',
-    //         'description' => 'required',
-    //         'stock' => 'required',
-    //         'price' => 'required',
-    //         'image_id' => 'required',
-    //         'category' => 'required',
-    //         'brand' => 'required',
-    //         'gender' => 'required',
-    //     ]);
-
-    //     Product::Create($validate);
-
-    //     return redirect()->route('admin.product.index')->with("Success");
-    // }
-
     public function store(Request $request){
 
         $validate = $request->validate([
@@ -144,7 +125,7 @@ class ManageProductController extends Controller
         $product = Product::find($id);
     
         if (!$product) {
-            // Handle the case where the product is not found
+
             return redirect()->route('admin.product.index')->with("error", "Product not found");
         }
     

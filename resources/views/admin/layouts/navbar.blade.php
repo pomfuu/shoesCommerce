@@ -154,3 +154,25 @@
       </li>
     </ul>
 </nav> --}}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <span class="fw-semibold ">Schuhe</span>
+      <span class="fw-light ">Admin</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{ route('admin.product.index') }}">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('admin.index') }}">Order</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

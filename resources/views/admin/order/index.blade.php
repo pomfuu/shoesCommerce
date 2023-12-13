@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('content')
-    <div class="container mt-5 mb-5">
+    <div class="container mt-4 mb-5">
 
         <p class="fs-2 fw-bold text-center mb-4">Order Manager</p>
 
