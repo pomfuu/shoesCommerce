@@ -77,6 +77,7 @@ class CheckoutController extends Controller
                     'total' => $co->total,
                     'qty' => $co->qty,
                     'size' => $co->size,
+                    'rate_status' => 'not_yet',
                 ]);
             }
         }
@@ -158,6 +159,7 @@ class CheckoutController extends Controller
                     'total' => $co->total,
                     'qty' => $co->qty,
                     'size' => $co->size,
+                    'rate_status' => 'not_yet',
                 ]);
             }
         }

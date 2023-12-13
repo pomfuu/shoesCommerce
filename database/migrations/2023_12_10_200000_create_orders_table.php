@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('size');
             $table->integer('qty');
             $table->integer('total');
+            $table->string('rate_status');
 
             $table->foreign('sum_id')->references('id')->on('ordersums')->onDelete('cascade');
         });

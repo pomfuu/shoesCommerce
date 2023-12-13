@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('description');
             $table->integer('stock')->default(100);
             $table->integer('price');
-            $table->integer('image_id');
+            $table->integer('image_id')->nullable();
             $table->integer('category');
             $table->string('brand');
             $table->integer('gender');

@@ -20,7 +20,7 @@
                 <p class="text-center fw-medium ">Schuhe Official</p>
 
                 <div class="separator-line my-5"></div>
-                <button class="w-100 btn border-1 border-dark mb-2">Check Order Status</button>
+                <a class="w-100 btn border-1 border-dark mb-2" href="{{ route('user.myorder') }}">Check Order Status</a>
                 <a class="w-100 btn bg-dark text-light mb-5" href="{{ route('home') }}">Back to Home</a>
                 <ol class="order-tutorial">
                     <li>Copy the virtual account number.</li>

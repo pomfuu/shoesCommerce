@@ -19,35 +19,35 @@
                 @foreach ($images as $img)
                     @if ($products->id == $img->id)
                         <div class="bg-dark item-main-img">
-                            <img src="{{ asset('./storage/product/' . $img->main_image . '.jpg') }}" alt=""
+                            <img src="{{ asset('./storage/product/' . $img->main_image) }}" alt=""
                                 class="item-main-img">
                         </div>
                         <div class="row m-0 gap-2 g-2">
                             {{-- Second Image --}}
                             <div class="col p-0">
                                 <div class="item-img bg-dark">
-                                    <img src="{{ asset('./storage/product/' . $img->sec_image . '.jpg') }}" alt=""
+                                    <img src="{{ asset('./storage/product/' . $img->sec_image) }}" alt=""
                                         class="item-img">
                                 </div>
                             </div>
                             {{-- Third Image --}}
                             <div class="col p-0">
                                 <div class="item-img bg-dark">
-                                    <img src="{{ asset('./storage/product/' . $img->third_image . '.jpg') }}" alt=""
+                                    <img src="{{ asset('./storage/product/' . $img->third_image) }}" alt=""
                                         class="item-img">
                                 </div>
                             </div>
                             {{-- Fourth Image --}}
                             <div class="col p-0">
                                 <div class="item-img bg-dark">
-                                    <img src="{{ asset('./storage/product/' . $img->fourth_image . '.jpg') }}" alt=""
+                                    <img src="{{ asset('./storage/product/' . $img->fourth_image) }}" alt=""
                                         class="item-img">
                                 </div>
                             </div>
                             {{-- Fifth Image --}}
                             <div class="col p-0">
                                 <div class="item-img bg-dark">
-                                    <img src="{{ asset('./storage/product/' . $img->fifth_image . '.jpg') }}" alt=""
+                                    <img src="{{ asset('./storage/product/' . $img->fifth_image) }}" alt=""
                                         class="item-img">
                                 </div>
                             </div>
@@ -161,7 +161,7 @@
             {{-- Review & Rating --}}
             <div class="col p-0">
                 @foreach ($reviews as $rev)
-                    <div class="review-container bg-light custom-rounded shadow  p-4 mb-2">
+                    <div class="review-container bg-light custom-rounded shadow p-4 mb-2">
                         <div class="row m-0">
                             <div class="col">
                                 @foreach ($users as $user)
@@ -180,7 +180,11 @@
                         </div>
                         <div class="row m-0 mt-3 gap-3">
                             <div class="col-1">
-                                <div class="review-img"></div>
+                                @if(file_exists(public_path('storage/review/' . $rev->id . 'from' . $user->id . '.jpg')))
+                                    <img src="{{ asset('./storage/review/' . $rev->id . 'from' . $user->id . '.jpg')}}" alt="Review Image" class="review-img">
+                                @else
+                                <img src="{{ asset('./storage/review/default.jpg')}}" alt="Review Image" class="review-img">
+                                @endif
                             </div>
                             <div class="col">
                                 <p class="review-comment-placeholder m-0">{{ $rev->comment }}</p>
@@ -206,7 +210,7 @@
 
                                     @foreach ($images as $img)
                                         @if ($prdAll->id == $img->id)
-                                            <img src="{{ asset('./storage/product/' . $img->main_image . '.jpg') }}"
+                                            <img src="{{ asset('./storage/product/' . $img->main_image) }}"
                                                 style="height: 27vw; object-fit: cover" class="card-img-top"
                                                 alt="product image">
                                         @endif
@@ -331,7 +335,8 @@
 
             width: 64px;
             height: 64px;
-            background-color: #000000;
+            object-fit: cover;
+            /* background-color: #000000; */
         }
 
         .review-comment-placeholder {

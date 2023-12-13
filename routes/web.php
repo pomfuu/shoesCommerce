@@ -48,7 +48,8 @@ Route::group(['middleware' =>['auth', 'verified'], 'prefix' => 'user', 'as' => '
     Route::post('order/completed/{id}', [OrderController::class, 'completed'])->name('order.completed');
     Route::post('order/cancelled/{id}', [OrderController::class, 'cancel'])->name('order.cancelled');
     Route::post('check-order', [OrderController::class, 'checkOrder'])->name('checkorder');
-    Route::post('order/product/review/{id}', [ReviewController::class, 'reviewProduct'])->name('review');
+    Route::post('my-order/product/review/{id}', [ReviewController::class, 'index'])->name('review');
+    Route::post('my-order/product/review/add/{id}', [ReviewController::class, 'reviewProduct'])->name('add.review');
 });
 
 Route::middleware('auth')->group(function () {

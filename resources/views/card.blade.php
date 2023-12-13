@@ -2,8 +2,8 @@
     <a href="{{ route('product.detail', ['id' => $card->id]) }}" class="text-decoration-none text-black">
         <div class="#" style="width:99%">
             @foreach($images as $img)
-                @if($img->id == $card->id)
-                    <img src="{{ asset('./storage/product/' .$img->main_image. '.jpg') }}" style="height: 27vw; object-fit: cover" class="card-img-top" alt="product image">
+                @if($img->image_id == $card->id)
+                    <img src="{{ asset('./storage/product/' .$img->main_image) }}" style="height: 27vw; object-fit: cover" class="card-img-top" alt="product image">
                 @endif
             @endforeach
             <div class="card-body my-2">

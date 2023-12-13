@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <form method="POST" action="{{ route('admin.product.store') }}">
+    <form method="POST" action="{{ route('admin.product.store') }}" enctype="multipart/form-data">
         
         <div class="form-group">
             <label for="name" class="">Name</label>
@@ -59,6 +59,64 @@
                 @endforeach
             </select>
         </div>
+
+        {{-- <p class="m-0 mb-1 fw-semibold ">Add an image to your review</p>
+        <div class="input-group mb-1">
+            <input type="file" class="form-control" id="inputGroupFile01" name="main-img">
+        </div>
+
+        <p class="m-0 mb-1 fw-semibold ">Add an image to your review</p>
+        <div class="input-group mb-1">
+            <input type="file" class="form-control" id="inputGroupFile01" name="sec-img">
+        </div>
+
+        <p class="m-0 mb-1 fw-semibold ">Add an image to your review</p>
+        <div class="input-group mb-1">
+            <input type="file" class="form-control" id="inputGroupFile01" name="third-img">
+        </div>
+
+        <p class="m-0 mb-1 fw-semibold ">Add an image to your review</p>
+        <div class="input-group mb-1">
+            <input type="file" class="form-control" id="inputGroupFile01" name="fourth-img">
+        </div>
+
+        <p class="m-0 mb-1 fw-semibold ">Add an image to your review</p>
+        <div class="input-group mb-1">
+            <input type="file" class="form-control" id="inputGroupFile01" name="fifth-img">
+        </div>
+
+        <div class="form-group">
+            <label for="name" class="">Name</label>
+            <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
+        </div> --}}
+
+        <!-- ... (other form fields) ... -->
+
+        <p class="m-0 mb-1 fw-semibold">Add an image to your review</p>
+        <div class="input-group mb-1">
+            <input type="file" class="form-control" id="main-img" name="main-img">
+        </div>
+
+        <p class="m-0 mb-1 fw-semibold">Add an image to your review</p>
+        <div class="input-group mb-1">
+            <input type="file" class="form-control" id="sec-img" name="sec-img">
+        </div>
+
+        <p class="m-0 mb-1 fw-semibold">Add an image to your review</p>
+        <div class="input-group mb-1">
+            <input type="file" class="form-control" id="third-img" name="third-img">
+        </div>
+
+        <p class="m-0 mb-1 fw-semibold">Add an image to your review</p>
+        <div class="input-group mb-1">
+            <input type="file" class="form-control" id="fourth-img" name="fourth-img">
+        </div>
+
+        <p class="m-0 mb-1 fw-semibold">Add an image to your review</p>
+        <div class="input-group mb-1">
+            <input type="file" class="form-control" id="fifth-img" name="fifth-img">
+        </div>
+
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
 </div>

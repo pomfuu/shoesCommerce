@@ -16,7 +16,7 @@ class ManageOrderController extends Controller
     public function index(){
 
         $products = Product::all();
-        $ordersums = OrderSum::all();
+        $ordersums = OrderSum::orderBy('id', 'desc')->get();
         $orders = Order::all();
         $payments = Payment::all();
         $users = User::all();

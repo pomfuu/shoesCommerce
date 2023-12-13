@@ -95,11 +95,17 @@
                                         <div class="col">Rp {{ number_format($ord->total, 0, '.', '.') }}</div>
                                         <div class="col-1">
                                             @if ($sum->status == 'completed')
-                                                <form method="post" action="{{ route('user.review', ['id', $ord->id]) }}">
-                                                    <button class="btn p-0 text-dark"><i class="bi bi-star-fill"></i> Rate</button>
-                                                </form>
+                                                @if($ord->rate_status == 'rated')
+
+                                                    <p class="m-0"><i class="bi bi-check2"></i></p>
+                                                @else
+
+                                                    <form method="post" action="{{ route('user.review', ['id' => $ord->id]) }}">
+                                                        <button class="btn p-0 text-dark"><i class="bi bi-star-fill"></i> Rate</button>
+                                                    </form>
+                                                @endif
                                             @else
-                                                <p class="m-0">-</p>
+                                                <p class="m-0"><i class="bi bi-dash"></i></p>
                                             @endif
                                         </div>
                                     </div>
