@@ -28,9 +28,9 @@ class MenController extends Controller
             case 'Newest_Arrival':
                 $productbyGender->latest();
                 break;
-            case 'Highest_Rating':
-                $productbyGender->orderBy('averageStar', 'desc');
-                break;
+            // case 'Highest_Rating':
+            //     $productbyGender->orderBy('averageStar', 'desc');
+            //     break;
             default:
         }
 
