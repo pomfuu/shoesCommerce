@@ -18,11 +18,10 @@ return new class extends Migration
             $table->string('description');
             $table->integer('stock')->default(100);
             $table->integer('price');
-            $table->string('image')->nullable();
-            $table->string('category');
+            $table->integer('image_id')->nullable();
+            $table->integer('category');
             $table->string('brand');
-            $table->string('gender');
-            $table->float('averageStar')->default(0);
+            $table->integer('gender');
         });
     }
 

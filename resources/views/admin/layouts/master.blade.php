@@ -3,23 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>General Dashboard &mdash; Stisla</title>
+  <title>Schuhe Manager</title>
 
-  <!-- General CSS Files -->
-  <link rel="stylesheet" href="{{ asset('backend/assets/modules/bootstrap/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('backend/assets/modules/fontawesome/css/all.min.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- CSS Libraries -->
-  <link rel="stylesheet" href="{{ asset('backend/assets/modules/jqvmap/dist/jqvmap.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('backend/assets/modules/weather-icon/css/weather-icons.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('backend/assets/modules/weather-icon/css/weather-icons-wind.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('backend/assets/modules/summernote/summernote-bs4.css') }}">
-
-  <!-- Template CSS -->
-  <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('backend/assets/css/components.css') }}">
-<!-- Start GA -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+{{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> --}}
+{{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">  --}}
+  
+{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> --}}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -27,6 +21,9 @@
 
   gtag('config', 'UA-94034622-3');
 </script>
+
+@vite(['resources/js/app.js'])
+
 <!-- /END GA --></head>
 
 <body>
@@ -46,29 +43,12 @@
       </div>
     </div>
   </div>
-
-  <!-- General JS Scripts -->
-  <script src="{{ asset('backend/assets/modules/jquery.min.js') }}"></script>
-  <script src="{{ asset('backend/assets/modules/popper.js') }}"></script>
-  <script src="{{ asset('backend/assets/modules/tooltip.js') }}"></script>
-  <script src="{{ asset('backend/assets/modules/bootstrap/js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('backend/assets/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
-  <script src="{{ asset('backend/assets/modules/moment.min.js') }}"></script>
-  <script src="{{ asset('backend/assets/js/stisla.js') }}"></script>
-
-  <!-- JS Libraies -->
-  <script src="{{ asset('backend/assets/modules/simple-weather/jquery.simpleWeather.min.js') }}"></script>
-  <script src="{{ asset('backend/assets/modules/chart.min.js') }}"></script>
-  <script src="{{ asset('backend/assets/modules/jqvmap/dist/jquery.vmap.min.js') }}"></script>
-  <script src="{{ asset('backend/assets/modules/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
-  <script src="{{ asset('backend/assets/modules/summernote/summernote-bs4.js') }}"></script>
-  <script src="{{ asset('backend/assets/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
-
-  <!-- Page Specific JS File -->
-  <script src="{{ asset('backend/assets/js/page/index-0.js') }}"></script>
-
-  <!-- Template JS File -->
-  <script src="{{ asset('backend/assets/js/scripts.js') }}"></script>
-  <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
 </body>
 </html>
+
+<style>
+  body{
+
+    font-family: 'Onest', sans-serif;
+  }
+</style>
