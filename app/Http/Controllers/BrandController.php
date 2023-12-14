@@ -25,9 +25,9 @@ class BrandController extends Controller
             case 'Newest_Arrival':
                 $cards->latest();
                 break;
-            case 'Highest_Rating':
-                $cards->orderBy('averageStar', 'desc');
-                break;
+            // case 'Highest_Rating':
+            //     $cards->orderBy('averageStar', 'desc');
+            //     break;
             default:
         }
 
