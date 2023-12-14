@@ -6,9 +6,20 @@
         <div class="row gap-3 content-container m-0 w-75 mx-auto p-5 bg-white shadow-sm rounded">
             <div class="col-4">
 
-                <div class="item-img mx-auto">
-                    <img src="" alt="">
-                </div>
+                {{-- <div class="item-img mx-auto">
+                    <img src="{{ asset('./storage/product/' . $prd->id . 's1.jpg') }}" alt="Item Image">
+                </div> --}}
+                
+                @foreach($products as $prd)
+                    @foreach ($images as $img)
+                        @if ($prd->id == $img->id)
+                            <div class="bg-dark item-img">
+                                <img src="{{ asset('./storage/product/' . $img->main_image) }}" alt=""
+                                class="item-img">
+                            </div>
+                        @endif
+                    @endforeach
+                @endforeach
             </div>
             <div class="col">
 

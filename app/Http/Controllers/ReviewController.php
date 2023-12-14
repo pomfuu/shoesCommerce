@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Payment;
+use App\Models\Image;
 use App\Models\Order;
 use App\Models\OrderSum;
 use App\Models\Product;
@@ -20,7 +21,12 @@ class ReviewController extends Controller
         $ordersums = OrderSum::all()->where('id', $orders->sum_id);
         $products = Product::all()->where('id', $orders->product_id);
 
-        return view('review', compact('orders', 'ordersums', 'products'));
+        foreach($products as $prd){
+
+            $images = Image::where('image_id', $prd->id)->get();
+        }
+
+        return view('review', compact('orders', 'ordersums', 'products', 'images'));
     }
 
     public function reviewProduct(Request $request, $id)
@@ -28,6 +34,7 @@ class ReviewController extends Controller
 
         $users = Auth::user();
         $orders = Order::find($id);
+
         $reviews = Review::orderBy('id', 'desc')->limit(1)->value('id');
 
         if ($orders->rate_status == 'not_yet') {

@@ -14,15 +14,7 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         DB::table('products')->insert([
-            // $table->timestamps();
-            // $table->string('name');
-            // $table->string('description');
-            // $table->integer('stock')->default(100);
-            // $table->integer('price');
-            // $table->string('image')->nullable();
-            // $table->string('category');
-            // $table->string('brand');
-            // $table->float('averageStar')->default(0);
+            
             [
                 'name' => 'Nike Shoe',
                 'description' => 'Lorem Ipsum',
